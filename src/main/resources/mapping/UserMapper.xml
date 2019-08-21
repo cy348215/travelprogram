@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.travel.mapper.UserMapper">
+    <select id="findUserInfoByUname" parameterType="string" resultType="com.qf.travel.pojo.User">
+        select
+        *
+        from
+        user u
+        where
+        u.uname = #{uname}
+    </select>
+    <select id="findUser" parameterType="user" resultType="com.qf.travel.pojo.User">
+        select
+         *
+        from
+        user u
+        where
+        u.uname=#{uname}
+        and
+        u.upwd=#{upwd}
+    </select>
+    <select id="findUR" resultType="com.qf.travel.pojo.UserR" parameterType="userR">
+        select
+        *
+        from
+        user_role
+        where
+        uid=#{uid}
+    </select>
+</mapper>
