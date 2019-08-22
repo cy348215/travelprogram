@@ -115,16 +115,21 @@ public class UserController {
         return "redirect:login";
     }
     //超级管理员有权访问的模块
-    @RequiresPermissions(value = {"conCen"})
-    @RequestMapping("/one")
-    public String one(){
-        return "one";
+    @RequiresPermissions(value = "")
+    @RequestMapping("/main")
+    public String main(){
+        return "main";
     }
-    //admin用户访问的模块
-    @RequiresPermissions(value = {"user_forbidden"})
-    @RequestMapping("/two")
-    public String two(){
-        return "two";
+    //会员管理员用户访问的模块
+    @RequiresPermissions(value = {"memManage"})
+    @RequestMapping("/adminis")
+    public String adminis(){
+        return "adminis";
     }
-
+    //订单管理员用户访问的模块
+    @RequiresPermissions(value = {"ordManage"})
+    @RequestMapping("/ordManage")
+    public String ordManage(){
+        return "ordManage";
+    }
 }
